@@ -8,10 +8,10 @@ const goodPoints = [
   "行動力です。すぐに動く姿勢が周りを引っ張ります。",
   "ユーモアです。あなたの冗談や笑いが場を和ませます。"
 ];
-const nameNameInput = document.getElementById('nameInput');
+const nameNameInput = document.getElementById('user-name');
 const assessmentButton = document.getElementById('assessment');
-const resultDivision = document.getElementById('result');
-const tweetDivision = document.getElementById('tweet');
+const resultDivision = document.getElementById('result-area');
+const tweetDivision = document.getElementById('tweet-area');
 
 /**
  * 名前の文字列を渡すと診断結果を返す関数
@@ -64,16 +64,28 @@ assessmentButton.addEventListener(
     // 診断結果表示エリアの作成
     resultDivision.innerText = ''
     //↑ここで結果エリアを毎回初期化することで連打されても複数結果出ない
-    const heading = document.createElement('h3');
-    heading.innerText = '診断結果';
-    resultDivision.appendChild(heading);
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class', 'card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+
+    // bodyDivision の作成
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class', 'card-body');
 
     const paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'card-text');
     const result = diagnose(name);
     paragraph.innerText = result;
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
 
+    // resultDivision に Bootstrap のスタイルを適用する
+    resultDivision.setAttribute('class', 'card');
 
+    // headerDivision と bodyDivision を resultDivision に差し込む
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
+
+    
     // ツイートエリアの作成
     tweetDivision.innerText = '';
     const anchor = document.createElement('a');
