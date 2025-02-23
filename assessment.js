@@ -7,6 +7,7 @@ const goodPoints = [
   "笑顔です。あなたの笑顔が周囲の人を幸せにします。",
   "行動力です。すぐに動く姿勢が周りを引っ張ります。",
   "ユーモアです。あなたの冗談や笑いが場を和ませます。"
+  "セクシーさです。あなたの妖艶な雰囲気に皆魅了されています。"
 ];
 const nameNameInput = document.getElementById('user-name');
 const assessmentButton = document.getElementById('assessment');
